@@ -1,0 +1,42 @@
+{
+  "name": "react-draggable",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "./node_modules/.bin/webpack-dev-server --config webpack.config.js",
+    "build:test": "./node_modules/.bin/webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Madhu0/React-Draggable.git"
+  },
+  "keywords": [
+    "React-Draggable",
+    "React-Drag-n-Drop"
+  ],
+  "author": "MadhusudhanReddy K",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Madhu0/React-Draggable/issues"
+  },
+  "homepage": "https://github.com/Madhu0/React-Draggable#readme",
+  "dependencies": {
+    "react": "^16.3.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2016": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^3.2.0",
+    "material-ui": "^0.20.0",
+    "react-dom": "^16.3.1",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.3"
+  }
+}
