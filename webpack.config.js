@@ -22,10 +22,9 @@ const config = {
     new HtmlWebpackPlugin(),
   ],
   devServer: {
-    contentBase: path.join(__dirname, './dist'),
-    compress: true,
     port: 8080
-  }
+  },
+  devtool: 'eval-source-map'
 }
 
 module.exports = config;

@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 
 export default class Droppable extends Component {
 
+  handleDrop = (e) => {
+    console.log(e.dataTransfer.getData('itemToBeDragged'));
+  }
+
+  handleDragOver = (e) => {
+    e.preventDefault();
+  }
+
   render() {
-    return <p>This is Droppable</p>;
+    const { children } = this.props;
+    return (<div onDrop={this.handleDrop} onDragOver={this.handleDragOver}> DDrop Drop</div>);
   }
 }

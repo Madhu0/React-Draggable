@@ -8,7 +8,7 @@ class TestApp extends Component {
     return (<div>
       <p>Hello</p>
       <Draggable>
-        <p>You can drag me now</p>
+        <p>You can drag me now1</p>
       </Draggable>
       <Droppable />
     </div>);

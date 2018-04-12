@@ -4,6 +4,7 @@ export default class Draggable extends Component {
 
   handleDragStart = (e) => {
     console.log(e);
+    e.dataTransfer.setData('itemToBeDragged', e.target);
   }
 
   render() {
