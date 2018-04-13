@@ -1,17 +1,38 @@
 import React, { Component } from 'react';
+import { Consumer } from '../wrapper';
+import './index.scss'
 
-export default class Droppable extends Component {
+class Droppable extends Component {
+
+  constructor(props) {
+    super(props);
+    this.child = null;
+    this.state = {
+      itemDropped: false,
+    };
+  }
 
   handleDrop = (e) => {
-    console.log(e.dataTransfer.getData('itemToBeDragged'));
+    const id = e.dataTransfer.getData('text');
+    this.child = this.props.eventHandlers.getComponent(id);
+    this.setState({
+      itemDropped: true
+    });
   }
 
   handleDragOver = (e) => {
     e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
   }
 
   render() {
     const { children } = this.props;
-    return (<div onDrop={this.handleDrop} onDragOver={this.handleDragOver}> DDrop Drop</div>);
+    return (<div onDrop={this.handleDrop} onDragOver={this.handleDragOver} className="container-droppable" aria-dropeffect="move">
+      {this.state.itemDropped && this.child}
+    </div>);
   }
 }
+
+export default (props) => (<Consumer>
+  {(handlers) => <Droppable {...props} eventHandlers={handlers}/>}
+</Consumer>);
