@@ -8,15 +8,16 @@ class Droppable extends Component {
     super(props);
     this.child = null;
     this.state = {
-      itemDropped: false,
+      droppedChildren: [],
     };
   }
 
   handleDrop = (e) => {
     const id = e.dataTransfer.getData('text');
-    this.child = this.props.eventHandlers.getComponent(id);
+    const children = this.state.droppedChildren || [];
+    children.push(this.props.eventHandlers.getComponent(id));
     this.setState({
-      itemDropped: true
+      droppedChildren: children,
     });
   }
 
@@ -26,9 +27,9 @@ class Droppable extends Component {
   }
 
   render() {
-    const { children } = this.props;
-    return (<div onDrop={this.handleDrop} onDragOver={this.handleDragOver} className="container-droppable" aria-dropeffect="move">
-      {this.state.itemDropped && this.child}
+    const { ChildComponent } = this.props;
+    return (<div onDrop={this.handleDrop} onDragOver={this.handleDragOver} aria-dropeffect="move">
+      <ChildComponent {...this.props} droppedChildren={this.state.droppedChildren} />
     </div>);
   }
 }

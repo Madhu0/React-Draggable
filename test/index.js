@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import Draggable from '../src/components/draggable';
 import Droppable from '../src/components/droppable';
 import Wrapper, { Consumer } from '../src/components/wrapper';
+import Test1 from './test1';
+import DroppableTest1 from './droppableTest1';
 
 class TestApp extends Component {
   render() {
@@ -11,7 +13,10 @@ class TestApp extends Component {
       <Draggable>
         <p>You can drag me now1</p>
       </Draggable>
-      <Droppable />
+      <Draggable>
+        <Test1 />
+      </Draggable>
+      <Droppable ChildComponent={DroppableTest1} />
     </div>);
   }
 }
