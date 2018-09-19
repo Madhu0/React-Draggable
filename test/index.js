@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
-import Draggable from '../src/components/draggable';
-import Droppable from '../src/components/droppable';
+import Draggable from './../src/components/draggable';
+import Droppable from './../src/components/droppable';
+
+const dragImageLink = "https://png.icons8.com/ios/100/flamingo.png";
 
 class TestApp extends Component {
   render() {
     return (<div>
       <p>Hello</p>
-      <Draggable>
-        <p>You can drag me now</p>
+      <Draggable dragComponent={<div style={{ height: '30px', width: '30px', 'background': 'black', color: 'yellow' }}>Abc</div>}>
+        <div style={{ height: '30px', width: '300px', 'background': 'red', color: 'black' }}>
+          <p>You can drag me now</p>
+        </div>
       </Draggable>
       <Droppable />
     </div>);
