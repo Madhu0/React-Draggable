@@ -5,6 +5,8 @@ import Droppable from './../src/components/droppable';
 
 const dragImageLink = "https://png.icons8.com/ios/100/flamingo.png";
 
+const TempComp = () => (<div>Abc</div>);
+
 class TestApp extends Component {
   render() {
     return (<div>
