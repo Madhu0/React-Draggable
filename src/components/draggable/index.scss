@@ -1,0 +1,9 @@
+.container-draggable {
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+.container-draggable:active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
