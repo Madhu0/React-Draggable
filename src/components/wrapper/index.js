@@ -2,6 +2,11 @@ import React, { Component, createContext } from 'react';
 
 const Context = createContext({});
 
+const events = {
+  onDragStart: 'onDragStart',
+  onDragEnd: 'onDragEnd'
+};
+
 export default (WrappedComponent) => (class Wrapper extends Component {
   
   constructor(props) {
@@ -25,6 +30,10 @@ export default (WrappedComponent) => (class Wrapper extends Component {
 
   getComponent = (key) => {
     return this.state.dragElements[key];
+  }
+
+  addEventListener = (eventName, callback) => {
+    
   }
 
   render() {

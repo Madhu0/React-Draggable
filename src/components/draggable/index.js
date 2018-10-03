@@ -35,14 +35,13 @@ class Draggable extends Component {
       e.dataTransfer.setDragImage(dragComp, 0, 0);
     }
     else if (isDomNode){
-
+      const container = document.getElementById('dragImage-' + this.id);
+      e.dataTransfer.setDragImage(container, 0, 0);
     } else {
       const container = document.getElementById('dragImage-' + this.id);
-      // const TempComp = () => (<div>Abc</div>);
       ReactDOM.render(dragComponent, container);
       e.dataTransfer.setDragImage(container, 0, 0);
     }
-    // e.dataTransfer.setDragImage(dragComp, 0, 0);
   }
 
   render() {
