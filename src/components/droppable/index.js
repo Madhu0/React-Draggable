@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Consumer } from '../wrapper';
+import eventManager from '../../helpers/eventManager';
 import './index.scss'
 
 class Droppable extends Component {
@@ -10,6 +11,9 @@ class Droppable extends Component {
     this.state = {
       droppedChildren: [],
     };
+    eventManager.addEventListener('dragStart', (data) => {
+      console.log('in dragStart from eventManager ', data);
+    });
   }
 
   handleDrop = (e) => {

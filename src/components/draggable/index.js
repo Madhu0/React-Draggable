@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { Consumer } from '../wrapper';
+import eventManager from '../../helpers/eventManager';
 
 class Draggable extends Component {
 
@@ -28,6 +29,7 @@ class Draggable extends Component {
     const { dragImageLink, dragComponent, isDomNode = false } = this.props;
     e.dataTransfer.setData('text/plain', 'adcdefgh');
     this.props.eventHandlers.onDragStart('adcdefgh', this.props.children);
+    eventManager.dispatchEvent('dragStart', 'adcdefgh');
     let dragComp;
     if (dragImageLink) {
       dragComp = document.createElement('img');

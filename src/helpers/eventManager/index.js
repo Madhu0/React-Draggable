@@ -1,6 +1,10 @@
-var Wrapper = (eventsList) => {
+import { eventsList as allEvents } from '../constants';
+
+// Need to add stopPropagation functionality on events
+const Wrapper = function(eventsList) {
   // Shoudn't expose this object
-  eventListeners = {};
+  const eventListeners = {};
+
   class EventOrganizer {
     constructor(eventsList) {
       this.init(eventsList);
@@ -21,12 +25,12 @@ var Wrapper = (eventsList) => {
     }
 
     dispatchEvent = (event, data) => {
-      Object.keys(eventListeners[event]).forEach((callback) => {
-        callback(data);
+      Object.keys(eventListeners[event]).forEach((eventKey) => {
+        eventListeners[event][eventKey](data);
       });
     }
   }
-  Wrapper.prototype = new EventOrganizer();
+  this.__proto__ = new EventOrganizer(eventsList);
 }
 
-export default Wrapper
+export default new Wrapper(allEvents);
